@@ -78,41 +78,69 @@ export class FullscreenClock extends LitElement {
 
   private getCurrentTime(): Time {
     const now = new Date();
-    const options: Intl.DateTimeFormatOptions = {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: !this.is24HourFormat,
-      timeZone: this.timezone || undefined,
-    };
 
-    const time = now.toLocaleTimeString(undefined, options).toUpperCase();
+    // Get time
+    const time = now
+      .toLocaleTimeString(undefined, {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: !this.is24HourFormat,
+        timeZone: this.timezone || undefined,
+      })
+      .toUpperCase();
 
-    const offset = now.getTimezoneOffset();
-    const hoursOffset = Math.abs(offset) / 60;
-    const minutesOffset = Math.abs(offset) % 60;
-    const sign = offset > 0 ? "-" : "+";
-    const offsetString = `UTC${sign}${hoursOffset
-      .toString()
-      .padStart(2, "0")}:${minutesOffset.toString().padStart(2, "0")}`;
-    const timezone =
-      now
-        .toLocaleDateString(undefined, { day: "2-digit", timeZoneName: "long" })
-        .substring(4) + ` (${offsetString})`;
+    // Get timezone
+    let timezone;
+    if (this.displayTimezone) {
+      const offset =
+        Number(
+          new Date(0).toLocaleString(undefined, {
+            hour: "2-digit",
+            hour12: false,
+            timeZone: this.timezone || undefined,
+          })
+        ) * -60;
+      const hoursOffset = Math.abs(offset) / 60;
+      const minutesOffset = Math.abs(offset) % 60;
+      const sign = offset > 0 ? "-" : "+";
+      const offsetString = `UTC${sign}${hoursOffset
+        .toString()
+        .padStart(2, "0")}:${minutesOffset.toString().padStart(2, "0")}`;
+      timezone =
+        now
+          .toLocaleDateString(undefined, {
+            day: "2-digit",
+            timeZoneName: "long",
+            timeZone: this.timezone || undefined,
+          })
+          .substring(4) + ` (${offsetString})`;
+    }
 
-    const weekday = now.toLocaleDateString(undefined, { weekday: "long" });
+    // Get weekday
+    const weekday =
+      this.displayWeekday &&
+      now.toLocaleDateString(undefined, {
+        weekday: "long",
+        timeZone: this.timezone || undefined,
+      });
 
-    const date = now.toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+    // Get date
+
+    const date =
+      this.displayDate &&
+      now.toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        timeZone: this.timezone || undefined,
+      });
 
     return {
       time: time,
-      timezone: this.displayTimezone && timezone,
-      weekday: this.displayWeekday && weekday,
-      date: this.displayDate && date,
+      timezone: timezone,
+      weekday: weekday,
+      date: date,
     };
   }
 
