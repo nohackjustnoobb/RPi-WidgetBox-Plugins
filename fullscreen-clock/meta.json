@@ -1,0 +1,46 @@
+{
+    "name": "fullscreen-clock",
+    "version": "1.0.0",
+    "description": "A fullscreen clock with date, time.",
+    "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/static/fullscreen-clock/meta.json",
+    "script": {
+        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/static/fullscreen-clock/index.js"
+    },
+    "configs": [
+        {
+            "name": "background-color",
+            "type": "text",
+            "default": "var(--color-background)"
+        },
+        {
+            "name": "text-color",
+            "type": "text",
+            "default": "var(--color-text)"
+        },
+        {
+            "name": "timezone",
+            "type": "text",
+            "default": null
+        },
+        {
+            "name": "24-hour-format",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "display-date",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "display-weekday",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "display-timezone",
+            "type": "boolean",
+            "default": false
+        }
+    ]
+}
