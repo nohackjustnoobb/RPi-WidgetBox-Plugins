@@ -2,9 +2,9 @@
     "name": "fullscreen-clock",
     "version": "1.0.0",
     "description": "A fullscreen clock with date, time.",
-    "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/static/fullscreen-clock/meta.json",
+    "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/fullscreen-clock/meta.json",
     "script": {
-        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/static/fullscreen-clock/index.js"
+        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/fullscreen-clock/index.js"
     },
     "configs": [
         {
@@ -24,22 +24,22 @@
         },
         {
             "name": "24-hour-format",
-            "type": "boolean",
+            "type": "checkbox",
             "default": false
         },
         {
             "name": "display-date",
-            "type": "boolean",
+            "type": "checkbox",
             "default": false
         },
         {
             "name": "display-weekday",
-            "type": "boolean",
+            "type": "checkbox",
             "default": false
         },
         {
             "name": "display-timezone",
-            "type": "boolean",
+            "type": "checkbox",
             "default": false
         }
     ]
