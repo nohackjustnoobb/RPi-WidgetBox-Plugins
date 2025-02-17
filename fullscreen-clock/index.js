@@ -38,6 +38,11 @@
       <h1>${this.time.time}</h1>
       ${t}
     </div>`}};u.styles=dt`
+    :host {
+      width: 100%;
+      height: 100%;
+    }
+
     div {
       font-family: Arial, sans-serif;
       width: 100%;
