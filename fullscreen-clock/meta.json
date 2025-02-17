@@ -23,7 +23,7 @@
             "default": null
         },
         {
-            "name": "24-hour-format",
+            "name": "use-24-hour",
             "type": "checkbox",
             "default": false
         },
