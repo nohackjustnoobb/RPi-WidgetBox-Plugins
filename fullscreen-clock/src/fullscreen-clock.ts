@@ -8,6 +8,12 @@ interface Time {
   timezone?: string | false;
 }
 
+const converter = {
+  fromAttribute: (value: unknown, _: unknown) => {
+    return value !== "false";
+  },
+};
+
 @customElement("fullscreen-clock")
 export class FullscreenClock extends LitElement {
   static styles = css`
@@ -50,12 +56,26 @@ export class FullscreenClock extends LitElement {
   @property({ type: String, attribute: "timezone" }) timezone:
     | string
     | undefined;
-  @property({ type: Boolean, attribute: "use-24-hour" }) is24HourFormat = false;
-  @property({ type: Boolean, attribute: "display-date" }) displayDate = false;
-  @property({ type: Boolean, attribute: "display-weekday" }) displayWeekday =
-    false;
-  @property({ type: Boolean, attribute: "display-timezone" }) displayTimezone =
-    false;
+  @property({
+    type: Boolean,
+    converter: converter,
+    attribute: "use-24-hour",
+  })
+  is24HourFormat = false;
+  @property({ type: Boolean, converter: converter, attribute: "display-date" })
+  displayDate = false;
+  @property({
+    type: Boolean,
+    converter: converter,
+    attribute: "display-weekday",
+  })
+  displayWeekday = false;
+  @property({
+    type: Boolean,
+    converter: converter,
+    attribute: "display-timezone",
+  })
+  displayTimezone = false;
 
   @state()
   private time = this.getCurrentTime();
