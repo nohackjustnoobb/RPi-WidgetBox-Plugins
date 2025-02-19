@@ -10,7 +10,7 @@ interface Time {
 
 const converter = {
   fromAttribute: (value: unknown, _: unknown) => {
-    return value !== "false";
+    return value && value !== "false";
   },
 };
 
