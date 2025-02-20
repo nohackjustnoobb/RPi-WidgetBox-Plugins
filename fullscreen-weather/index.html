@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fullscreen Weather</title>
+    <script type="module" src="/src/fullscreen-weather.ts"></script>
+    <style>
+      body,
+      html {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        --color-text: #c3c3c3;
+        --color-background: #2b2b2b;
+      }
+    </style>
+  </head>
+  <body>
+    <fullscreen-weather
+      weather="snow"
+      weather-text="Snow"
+      city="Tokyo"
+      temperature="25"
+      min-temperature="20"
+      max-temperature="30"
+      unit="°C"
+    ></fullscreen-weather>
+  </body>
+</html>
