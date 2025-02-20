@@ -10,17 +10,20 @@
         {
             "name": "background-color",
             "type": "text",
-            "default": "var(--color-background)"
+            "default": "var(--color-background)",
+            "hint": "The input should be the hex code of the color. For example, \"#ffffff\"."
         },
         {
             "name": "text-color",
             "type": "text",
-            "default": "var(--color-text)"
+            "default": "var(--color-text)",
+            "hint": "The input should be the hex code of the color. For example, \"#ffffff\"."
         },
         {
             "name": "timezone",
             "type": "text",
-            "default": null
+            "default": null,
+            "hint": "The list of time zones can be found by typing \"Intl.supportedValuesOf('timeZone')\" in the JavaScript console."
         },
         {
             "name": "use-24-hour",
