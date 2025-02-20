@@ -7,14 +7,14 @@ mkdir -p "$DEST_DIR"
 process_directory() {
     local dir="$1"
 
-    if [[ -f "$dir/package.json" ]]; then
+    if [[ -f "$dir/package.json" && -f "$dir/meta.json" ]]; then
         echo "Building project in $dir using yarn..."
         (cd "$dir" && yarn install && yarn run build) || {
             echo "Build failed in $dir"
             return
         }
     else
-        echo "No build system found in $dir, skipping."
+        echo "Required files not found in $dir, skipping."
         return
     fi
 
@@ -22,10 +22,8 @@ process_directory() {
     mkdir -p "$DEST_DIR/$(basename "$dir")"
     find "$dir/dist" -name "*.js" -exec cp {} "$DEST_DIR/$(basename "$dir")/index.js" \;
 
-    if [[ -f "$dir/meta.json" ]]; then
-        echo "Copying meta.json from $dir to build folder..."
-        cp "$dir/meta.json" "$DEST_DIR/$(basename "$dir")/"
-    fi
+    echo "Copying meta.json from $dir to build folder..."
+    cp "$dir/meta.json" "$DEST_DIR/$(basename "$dir")/"
 }
 
 find . -maxdepth 1 -type d | while read -r dir; do
