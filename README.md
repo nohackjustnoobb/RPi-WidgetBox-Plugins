@@ -41,8 +41,9 @@ Below is an example of a `meta.json` file:
   "configs": [
     {
       // Attribute name passed to the web component
-      "name": "config",
+      "name": "<your-config-name>",
       // Input type (used in <input type="text">)
+      // There are some special type that can be used. Check next section for more information.
       "type": "text",
       // Default value of the config
       "default": true
@@ -51,7 +52,38 @@ Below is an example of a `meta.json` file:
 }
 ```
 
-### Important Notes
+#### Important Notes
 
 - The plugin name (`name` in `meta.json`) must be a valid web component name.
 - Configuration attribute names (`configs.name` in `meta.json`) must be valid HTML attribute names.
+
+### Special Types
+
+1. `select`
+
+If the type is set to `select`, the configuration will use an HTML `<select>` dropdown element instead of a standard input field.
+
+To define the available options for the dropdown, use the options field. Each option should include a name (the text displayed in the dropdown) and a value (the actual stored value).
+
+```json
+{
+  "<others...>": "<metadata>",
+  "configs": [
+    {
+      "name": "<your-config-name>",
+      // Specifies that this is a dropdown
+      "type": "select",
+      "default": "<your-default-value>"
+      "options": [
+        {
+          // Text displayed in the dropdown
+          "name": "<your-option-name>",
+          // Value associated with this option
+          // If not specified, defaults will be the name of the option
+          "value": "<your-option-value>"
+        }
+      ]
+    }
+  ]
+}
+```
