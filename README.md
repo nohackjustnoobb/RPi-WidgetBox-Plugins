@@ -10,6 +10,12 @@ This repository contains example plugins and official plugins for [RPi-WidgetBox
 https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/fullscreen-clock/meta.json
 ```
 
+- Fullscreen Weather Open-Meteo
+
+```
+https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/fullscreen-weather-open-meteo/meta.json
+```
+
 - More coming soon !!
 
 ## Creating a New Plugin
