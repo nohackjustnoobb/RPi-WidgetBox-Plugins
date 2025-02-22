@@ -33,6 +33,6 @@ process_directory() {
     fi
 }
 
-find . -maxdepth 1 -type d | while read -r dir; do
+find . -maxdepth 1 -type d | sort | while read -r dir; do
     process_directory "$dir"
 done
