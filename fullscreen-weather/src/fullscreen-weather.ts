@@ -10,6 +10,8 @@ import {
 
 import { DotLottie } from '@lottiefiles/dotlottie-web';
 
+import * as assets from './assets';
+
 enum Weather {
   Clear = "clear",
   PartlyCloudy = "partlyCloudy",
@@ -22,20 +24,26 @@ enum Weather {
   Unknown = "unknown",
 }
 
-function toKebabCase(str: string): string {
-  return str.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+function capitalizeFirstLetter(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
 const weatherDayLotties = Object.fromEntries(
   Object.values(Weather)
     .filter((v) => v !== Weather.Unknown)
-    .map((v) => [v as Weather, `../assets/day-${toKebabCase(v)}.lottie`])
+    .map((v) => [
+      v as Weather,
+      (assets as any)[`day${capitalizeFirstLetter(v)}`],
+    ])
 );
 
 const weatherNightLotties = Object.fromEntries(
   Object.values(Weather)
     .filter((v) => v !== Weather.Unknown)
-    .map((v) => [v as Weather, `../assets/night-${toKebabCase(v)}.lottie`])
+    .map((v) => [
+      v as Weather,
+      (assets as any)[`night${capitalizeFirstLetter(v)}`],
+    ])
 );
 
 const sleep = async (duration: number): Promise<void> =>
@@ -193,3 +201,6 @@ declare global {
     "fullscreen-weather": FullscreenWeather;
   }
 }
+
+export default FullscreenWeather;
+export { Weather };
