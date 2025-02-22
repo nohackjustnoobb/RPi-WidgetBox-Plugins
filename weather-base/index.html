@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fullscreen Weather Open-Meteo</title>
-    <script type="module" src="/src/fullscreen-weather-open-meteo.ts"></script>
+    <title>Weather Base</title>
+    <script type="module" src="/src/fullscreen-weather.ts"></script>
     <style>
       body,
       html {
@@ -17,6 +17,14 @@
     </style>
   </head>
   <body>
-    <fullscreen-weather-open-meteo></fullscreen-weather-open-meteo>
+    <fullscreen-weather
+      weather="snow"
+      weather-text="Snow"
+      city="Tokyo"
+      temperature="25"
+      min-temperature="20"
+      max-temperature="30"
+      unit="°C"
+    ></fullscreen-weather>
   </body>
 </html>

@@ -1,15 +1,7 @@
-import {
-  css,
-  html,
-  LitElement,
-} from 'lit';
-import {
-  customElement,
-  property,
-  state,
-} from 'lit/decorators.js';
+import { css, html, LitElement } from "lit";
+import { customElement, property, state } from "lit/decorators.js";
 
-import { Weather } from '../../fullscreen-weather/src/fullscreen-weather';
+import { Weather } from "../../weather-base/src/weather-base";
 
 interface WeatherState {
   weather: Weather;
@@ -90,8 +82,8 @@ function convertWeatherCode(code: number): [string, Weather] {
   }
 }
 
-@customElement("fullscreen-weather-open-meteo")
-export class FullscreenWeatherOpenMeteo extends LitElement {
+@customElement("weather-open-meteo")
+export class WeatherOpenMeteo extends LitElement {
   static styles = css`
     :host {
       width: 100%;
@@ -195,7 +187,7 @@ export class FullscreenWeatherOpenMeteo extends LitElement {
   }
 
   render() {
-    return html`<fullscreen-weather
+    return html`<weather-base
       city=${this.city}
       timezone=${this.timezone}
       weather="${this.weather?.weather || Weather.Unknown}"
@@ -204,12 +196,12 @@ export class FullscreenWeatherOpenMeteo extends LitElement {
       min-temperature="${this.weather?.minTemperature || NaN}"
       max-temperature="${this.weather?.maxTemperature || NaN}"
       unit="°C"
-    ></fullscreen-weather>`;
+    ></weather-base>`;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "fullscreen-weather-open-meteo": FullscreenWeatherOpenMeteo;
+    "weather-open-meteo": WeatherOpenMeteo;
   }
 }

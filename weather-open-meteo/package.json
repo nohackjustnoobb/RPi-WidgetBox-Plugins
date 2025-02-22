@@ -1,5 +1,5 @@
 {
-  "name": "fullscreen-weather",
+  "name": "weather-open-meteo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@lottiefiles/dotlottie-web": "^0.40.1",
     "lit": "^3.2.1"
   },
   "devDependencies": {

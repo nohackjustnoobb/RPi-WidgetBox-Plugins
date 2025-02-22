@@ -1,16 +1,9 @@
-import {
-  css,
-  html,
-  LitElement,
-} from 'lit';
-import {
-  customElement,
-  property,
-} from 'lit/decorators.js';
+import { css, html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-import { DotLottie } from '@lottiefiles/dotlottie-web';
+import { DotLottie } from "@lottiefiles/dotlottie-web";
 
-import * as assets from './assets';
+import * as assets from "./assets.ts";
 
 enum Weather {
   Clear = "clear",
@@ -62,8 +55,8 @@ function isNight(timeZone: string): boolean {
   return hourNumber >= 18 || hourNumber < 6;
 }
 
-@customElement("fullscreen-weather")
-export class FullscreenWeather extends LitElement {
+@customElement("weather-base")
+export class WeatherBase extends LitElement {
   static styles = css`
     :host {
       width: 100%;
@@ -105,6 +98,7 @@ export class FullscreenWeather extends LitElement {
 
     h3 {
       font-size: 3rem;
+      font-weight: normal;
     }
 
     h4 {
@@ -198,9 +192,9 @@ export class FullscreenWeather extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "fullscreen-weather": FullscreenWeather;
+    "weather-base": WeatherBase;
   }
 }
 
-export default FullscreenWeather;
+export default WeatherBase;
 export { Weather };
