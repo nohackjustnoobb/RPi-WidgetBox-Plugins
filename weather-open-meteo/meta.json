@@ -1,5 +1,5 @@
 {
-    "name": "fullscreen-weather-open-meteo",
+    "name": "weather-open-meteo",
     "version": "1.0.0",
     "description": "A fullscreen weather info using data from Open-Meteo.",
     "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/weather-open-meteo/meta.json",
