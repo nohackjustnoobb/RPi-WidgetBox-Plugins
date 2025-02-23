@@ -25,6 +25,8 @@ Building a new plugin is simple. You only need:
 1. A `meta.json` file that defines the plugin's metadata.
 2. A script that defines a custom web component.
 
+Check out the plugins under the `examples` directory to get started.
+
 ### `meta.json` Structure
 
 Below is an example of a `meta.json` file:
@@ -43,7 +45,7 @@ Below is an example of a `meta.json` file:
     "url": "<url-to-your-script>",
     "inline": "javascript..."
   },
-  // Configuration options (can be empty if the plugin has no configs)
+  // Configuration options (can be ignored if the plugin has no configs)
   "configs": [
     {
       // Attribute name passed to the web component

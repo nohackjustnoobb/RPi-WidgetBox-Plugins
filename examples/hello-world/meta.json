@@ -1,0 +1,9 @@
+{
+    "name": "hello-world",
+    "version": "1.0.0",
+    "description": "A simple hello world plugin",
+    "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/hello-world/meta.json",
+    "script": {
+        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/hello-world/index.json"
+    }
+}

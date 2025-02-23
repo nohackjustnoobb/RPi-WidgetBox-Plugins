@@ -70,19 +70,18 @@ export class WeatherBase extends LitElement {
       display: flex;
       justify-content: center;
       align-items: center;
-      grid-gap: 5rem;
+      flex-direction: column;
     }
 
     .weather {
       display: flex;
       align-items: center;
-      flex-direction: column;
       gap: 1rem;
     }
 
     canvas {
-      width: 35rem;
-      height: 35rem;
+      width: 30rem;
+      height: 30rem;
     }
 
     h1,
@@ -110,13 +109,6 @@ export class WeatherBase extends LitElement {
     .range {
       display: flex;
       gap: 1rem;
-    }
-
-    .temperature {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
   `;
 
@@ -174,17 +166,15 @@ export class WeatherBase extends LitElement {
       class="container"
       style="background: ${this.backgroundColor}; color: ${this.textColor};"
     >
+      <h3>${this.city}</h3>
       <div class="weather">
         <canvas id="dotLottie-canvas"></canvas>
-      </div>
-      <div class="temperature">
-        <h3>${this.city}</h3>
         <h1>${this.temperature}${this.unit}</h1>
-        ${this.weatherText && html`<h4>${this.weatherText}</h4>`}
-        <div class="range">
-          <h4><b>H:</b> ${this.maxTemperature}${this.unit}</h4>
-          <h4><b>L:</b> ${this.minTemperature}${this.unit}</h4>
-        </div>
+      </div>
+      ${this.weatherText && html`<h4>${this.weatherText}</h4>`}
+      <div class="range">
+        <h4><b>H:</b> ${this.maxTemperature}${this.unit}</h4>
+        <h4><b>L:</b> ${this.minTemperature}${this.unit}</h4>
       </div>
     </div>`;
   }
