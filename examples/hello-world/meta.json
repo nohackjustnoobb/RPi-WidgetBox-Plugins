@@ -4,6 +4,6 @@
     "description": "A simple hello world plugin",
     "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/hello-world/meta.json",
     "script": {
-        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/hello-world/index.json"
+        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/hello-world/index.js"
     }
 }
