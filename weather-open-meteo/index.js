@@ -63,17 +63,15 @@
       class="container"
       style="background: ${this.backgroundColor}; color: ${this.textColor};"
     >
+      <h3>${this.city}</h3>
       <div class="weather">
         <canvas id="dotLottie-canvas"></canvas>
-      </div>
-      <div class="temperature">
-        <h3>${this.city}</h3>
         <h1>${this.temperature}${this.unit}</h1>
-        ${this.weatherText&&f0`<h4>${this.weatherText}</h4>`}
-        <div class="range">
-          <h4><b>H:</b> ${this.maxTemperature}${this.unit}</h4>
-          <h4><b>L:</b> ${this.minTemperature}${this.unit}</h4>
-        </div>
+      </div>
+      ${this.weatherText&&f0`<h4>${this.weatherText}</h4>`}
+      <div class="range">
+        <h4><b>H:</b> ${this.maxTemperature}${this.unit}</h4>
+        <h4><b>L:</b> ${this.minTemperature}${this.unit}</h4>
       </div>
     </div>`}};Z.styles=s9`
     :host {
@@ -88,19 +86,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      grid-gap: 5rem;
+      flex-direction: column;
     }
 
     .weather {
       display: flex;
       align-items: center;
-      flex-direction: column;
       gap: 1rem;
     }
 
     canvas {
-      width: 35rem;
-      height: 35rem;
+      width: 30rem;
+      height: 30rem;
     }
 
     h1,
@@ -128,13 +125,6 @@
     .range {
       display: flex;
       gap: 1rem;
-    }
-
-    .temperature {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
   `;_([n1({type:String,attribute:"background-color"})],Z.prototype,"backgroundColor",2);_([n1({type:String,attribute:"text-color"})],Z.prototype,"textColor",2);_([n1({type:String,attribute:"city"})],Z.prototype,"city",2);_([n1({type:String,attribute:"weather"})],Z.prototype,"weather",2);_([n1({type:String,attribute:"weather-text"})],Z.prototype,"weatherText",2);_([n1({type:String,attribute:"timezone"})],Z.prototype,"timezone",2);_([n1({type:String,attribute:"unit"})],Z.prototype,"unit",2);_([n1({type:Number,attribute:"temperature"})],Z.prototype,"temperature",2);_([n1({type:Number,attribute:"max-temperature"})],Z.prototype,"maxTemperature",2);_([n1({type:Number,attribute:"min-temperature"})],Z.prototype,"minTemperature",2);Z=_([E9("weather-base")],Z);var u6=Object.defineProperty,d6=Object.getOwnPropertyDescriptor,a1=(o,t,e,n)=>{for(var s=n>1?void 0:n?d6(t,e):t,h=o.length-1,u;h>=0;h--)(u=o[h])&&(s=(n?u(t,e,s):u(s))||s);return n&&s&&u6(t,e,s),s};function c6(o){switch(o){case 0:return["Clear",B.Clear];case 1:return["Partly Cloudy",B.PartlyCloudy];case 2:return["Cloudy",B.Cloudy];case 3:return["Overcast",B.Overcast];case 45:case 48:return["Fog",B.Overcast];case 51:case 53:case 55:return["Light, Moderate, or Heavy Drizzle",B.Drizzle];case 56:case 57:return["Freezing Drizzle",B.Drizzle];case 61:return["Light Rain",B.Rain];case 63:return["Moderate Rain",B.Rain];case 65:return["Heavy Rain",B.Rain];case 66:case 67:return["Freezing Rain",B.Rain];case 71:return["Light Snow",B.Snow];case 73:return["Moderate Snow",B.Snow];case 75:return["Heavy Snow",B.Snow];case 77:return["Snow Grains",B.Snow];case 80:return["Light Rain Showers",B.Rain];case 81:return["Moderate Rain Showers",B.Rain];case 82:return["Heavy Rain Showers",B.Rain];case 85:return["Light Snow Showers",B.Snow];case 86:return["Heavy Snow Showers",B.Snow];case 95:case 96:case 99:return["Thunderstorm",B.Thunderstorm];default:return["Unknown",B.Unknown]}}let K=class extends Y1{constructor(){super(...arguments),this.backgroundColor="var(--color-background)",this.textColor="var(--color-text)",this.timezone="Asia/Tokyo",this.updateInterval=60*30,this.city="Tokyo",this.latitude=35.6895,this.longitude=139.6917,this.weather=null,this.timeout=null,this.oldAttributes={latitude:this.latitude,longitude:this.longitude,updateInterval:this.updateInterval},this.isUpdating=!1}connectedCallback(){super.connectedCallback(),this.checkTimeout=setInterval(this.shouldUpdateWeather.bind(this),1e3)}disconnectedCallback(){super.disconnectedCallback(),clearInterval(this.checkTimeout)}shouldUpdateWeather(){const o={latitude:this.latitude,longitude:this.longitude,updateInterval:this.updateInterval};(JSON.stringify(o)!==JSON.stringify(this.oldAttributes)||this.weather===null)&&(this.timeout&&clearTimeout(this.timeout),this.updateWeather(),this.oldAttributes=o)}async updateWeather(){if(this.isUpdating)return;this.isUpdating=!0;const o=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${this.latitude}&longitude=${this.longitude}&current=temperature_2m%2Cweather_code&timezone=${this.timezone}&forecast_days=1&hourly=temperature_2m`);if(o.ok){const t=await o.json(),[e,n]=c6(t.current.weather_code),s=t.current.temperature_2m,h=t.hourly.temperature_2m,u=Math.min(...h),v=Math.max(...h);this.weather={weather:n,weatherText:e,temperature:s,minTemperature:u,maxTemperature:v}}this.timeout=setTimeout(this.updateWeather.bind(this),this.updateInterval*1e3),this.isUpdating=!1}render(){var o,t,e,n,s;return V4`<weather-base
       city=${this.city}
