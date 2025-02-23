@@ -25,12 +25,16 @@ class BackgroundScript extends HTMLElement {
     // Append elements to shadow DOM
     shadow.appendChild(style);
     shadow.appendChild(container);
+
+    this.subscribeToMessage();
   }
 
   async subscribeToMessage() {
     while (!this.subscribe) await sleep(250);
 
-    this.subscribe((mesg) => console.log("Received:\n" + mesg));
+    this.subscribe((mesg) =>
+      console.log("Received:\n" + JSON.stringify(mesg, null, 4))
+    );
   }
 }
 
