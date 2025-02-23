@@ -140,7 +140,7 @@ export class WeatherBase extends LitElement {
     )
       return;
 
-    let canvas = null;
+    let canvas = this.shadowRoot.querySelector("#dotLottie-canvas");
     while (!canvas) {
       await sleep(250);
       canvas = this.shadowRoot.querySelector("#dotLottie-canvas");

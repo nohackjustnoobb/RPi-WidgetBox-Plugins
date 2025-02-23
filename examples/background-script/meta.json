@@ -1,0 +1,12 @@
+{
+    "name": "background-script",
+    "version": "1.0.0",
+    "description": "A simple plugin that demonstrates background scripts",
+    "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/background-script/meta.json",
+    "backgroundScript": {
+        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/background-script/background.js"
+    },
+    "script": {
+        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/background-script/index.js"
+    }
+}

@@ -45,7 +45,13 @@ Below is an example of a `meta.json` file:
     "url": "<url-to-your-script>",
     "inline": "javascript..."
   },
-  // Configuration options (can be ignored if the plugin has no configs)
+  // (Optional) Define the plugin's background script (only one of "url" or "inline" is required)
+  // Check more information below.
+  "backgroundScript": {
+    "url": "<url-to-your-script>",
+    "inline": "javascript..."
+  },
+  // (Optional) Configuration options
   "configs": [
     {
       // Attribute name passed to the web component
@@ -95,3 +101,40 @@ To define the available options for the dropdown, use the options field. Each op
   ]
 }
 ```
+
+### Background Script
+
+If your plugin needs to run processes in the background, you must define a background script. The background script will only run in the `editor`. This script should export a default object with the following properties:
+
+```typescript
+interface Message {
+  type: string;
+  data?: any;
+}
+
+// The default export must conform to this interface.
+interface BackgroundProcess {
+  start: (
+    send: (mesg: Message) => void,
+    subscribe: (callback: (mesg: Message) => void) => void
+  ) => void;
+  stop: () => void;
+}
+```
+
+Function Details:
+
+- start(send, subscribe)
+  - Called when the plugin is enabled.
+  - Allows sending messages using send(mesg).
+  - Enables message subscription using subscribe(callback).
+- stop()
+  - Called when the plugin is disabled.
+  - Used to clean up any running background processes.
+
+#### Integration with Web Components
+
+If a background script is specified, the send and subscribe functions will also be injected into the web component. The web component can access them using:
+
+- `this.send(msg)` to send messages
+- `this.subscribe(callback)` to listen for messages

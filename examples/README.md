@@ -9,3 +9,10 @@ This directory contains various plugin examples, each demonstrating different fe
 ```
 https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/hello-world/meta.json
 ```
+
+- Background Script
+
+```
+https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/background-script/meta.json
+
+```

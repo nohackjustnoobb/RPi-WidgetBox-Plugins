@@ -13,8 +13,8 @@ class HelloWorld extends HTMLElement {
     const style = document.createElement("style");
     style.textContent = `
         div {
-          font-size: 20px;
-          color: #333;
+          font-size: 5rem;
+          color: red;
         }
       `;
 
