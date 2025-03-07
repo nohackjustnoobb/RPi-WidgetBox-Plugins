@@ -15,7 +15,7 @@ const converter = {
 };
 
 @customElement("fullscreen-clock")
-export class FullscreenClock extends LitElement {
+export default class FullscreenClock extends LitElement {
   static styles = css`
     :host {
       width: 100%;
@@ -191,5 +191,3 @@ declare global {
     "fullscreen-clock": FullscreenClock;
   }
 }
-
-export default FullscreenClock;

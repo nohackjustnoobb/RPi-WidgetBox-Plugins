@@ -83,7 +83,7 @@ function convertWeatherCode(code: number): [string, Weather] {
 }
 
 @customElement("weather-open-meteo")
-export class WeatherOpenMeteo extends LitElement {
+export default class WeatherOpenMeteo extends LitElement {
   static styles = css`
     :host {
       width: 100%;

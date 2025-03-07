@@ -56,7 +56,7 @@ function isNight(timeZone: string): boolean {
 }
 
 @customElement("weather-base")
-export class WeatherBase extends LitElement {
+export default class WeatherBase extends LitElement {
   static styles = css`
     :host {
       width: 100%;
@@ -186,5 +186,4 @@ declare global {
   }
 }
 
-export default WeatherBase;
 export { Weather };

@@ -7,6 +7,10 @@ mkdir -p "$DEST_DIR"
 process_directory() {
     local dir="$1"
 
+    if [[ "$(basename "$dir")" == .* ]]; then
+        return
+    fi
+
     if [[ -f "$dir/package.json" ]]; then
         echo "Installing dependencies in $dir using yarn..."
         (cd "$dir" && yarn install) || {
@@ -22,9 +26,8 @@ process_directory() {
             return
         }
 
-        echo "Copying and renaming JavaScript files from $dir to $DEST_DIR..."
-        mkdir -p "$DEST_DIR/$(basename "$dir")"
-        find "$dir/dist" -name "*.js" -exec cp {} "$DEST_DIR/$(basename "$dir")/index.js" \;
+        echo "Moving dist folder to $DEST_DIR and renaming it to $(basename "$dir")..."
+        mv "$dir/dist" "$DEST_DIR/$(basename "$dir")"
 
         echo "Copying meta.json from $dir to build folder..."
         cp "$dir/meta.json" "$DEST_DIR/$(basename "$dir")/"

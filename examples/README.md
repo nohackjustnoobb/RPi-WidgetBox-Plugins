@@ -14,5 +14,4 @@ https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/hea
 
 ```
 https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/master/examples/background-script/meta.json
-
 ```
