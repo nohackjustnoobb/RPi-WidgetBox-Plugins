@@ -1,0 +1,26 @@
+{
+    "name": "media-playback-live-activity",
+    "version": "1.0.0",
+    "description": "Show the current playing media.",
+    "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/media-playback-live-activity/meta.json",
+    "backgroundScript": {
+        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/media-playback-live-activity/background.js"
+    },
+    "script": {
+        "url": "https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/media-playback-live-activity/index.js"
+    },
+    "configs": [
+        {
+            "name": "background-color",
+            "type": "text",
+            "default": "var(--color-background)",
+            "hint": "The input should be the hex code of the color. For example, \"#ffffff\"."
+        },
+        {
+            "name": "text-color",
+            "type": "text",
+            "default": "var(--color-text)",
+            "hint": "The input should be the hex code of the color. For example, \"#ffffff\"."
+        }
+    ]
+}
