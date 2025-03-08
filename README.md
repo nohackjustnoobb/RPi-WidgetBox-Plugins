@@ -16,6 +16,12 @@ https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/hea
 https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/weather-open-meteo/meta.json
 ```
 
+- Media Playback Live Activity
+
+```
+https://raw.githubusercontent.com/nohackjustnoobb/RPi-WidgetBox-Plugins/refs/heads/static/media-playback-live-activity/meta.json
+```
+
 - More coming soon !!
 
 ## Creating a New Plugin
@@ -31,7 +37,7 @@ Check out the plugins under the `examples` directory to get started.
 
 Below is an example of a `meta.json` file:
 
-```json
+```jsonc
 {
   // The name of the web component
   "name": "custom-plugin",
@@ -79,7 +85,7 @@ If the type is set to `select`, the configuration will use an HTML `<select>` dr
 
 To define the available options for the dropdown, use the options field. Each option should include a name (the text displayed in the dropdown) and a value (the actual stored value).
 
-```json
+```jsonc
 {
   "<others...>": "<metadata>",
   "configs": [

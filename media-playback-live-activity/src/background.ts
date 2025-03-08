@@ -26,7 +26,23 @@ class Background {
 
     this.send = send;
     subscribe((mesg) => {
-      if (mesg.type === "getState") this.sendState();
+      switch (mesg.type) {
+        case "getState":
+          this.sendState();
+          break;
+        case "playMedia":
+          invoke("play_media");
+          break;
+        case "pauseMedia":
+          invoke("pause_media");
+          break;
+        case "nextTrack":
+          invoke("next_track");
+          break;
+        case "prevTrack":
+          invoke("prev_track");
+          break;
+      }
     });
 
     this.unlisten = await listen("media-activity", (event) => {

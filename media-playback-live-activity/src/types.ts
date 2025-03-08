@@ -4,6 +4,8 @@ interface Message {
 }
 
 interface MediaActivity {
+  infoUpdateTime?: number | null;
+  isPlaying?: boolean | null;
   title?: string | null;
   artist?: string | null;
   appName?: string | null;
